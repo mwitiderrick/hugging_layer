@@ -18,3 +18,4 @@ training:
 
   # File includes the required python libraries with their correct versions
   environment: requirements.txt
+  fabric: "f-medium"

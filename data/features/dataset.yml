@@ -5,6 +5,7 @@ type: featureset
 
 name: "hugging_features"
 description: "SMS sms_features extracted from the labeled sms messages"
+fabric: "f-medium"
 
 features:
   - name: is_spam

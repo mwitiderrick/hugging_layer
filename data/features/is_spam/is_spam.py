@@ -5,7 +5,7 @@ from sklearn.preprocessing import LabelEncoder
 
 def build_feature(sdf: Dataset("spam_messages")) -> Any:
     df = sdf.to_pandas()
-    df = df.sample(60, random_state=0)
+    df = df.sample(32, random_state=0)
     feature_data = df[["id", "label"]]
 
     # creating instance of labelencoder
