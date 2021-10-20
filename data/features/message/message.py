@@ -4,6 +4,6 @@ from layer import Dataset
 
 def build_feature(sdf: Dataset("spam_messages")) -> Any:
     df = sdf.to_pandas()
-    df = df.sample(1000, random_state=0)
+    df = df.sample(32, random_state=0)
     feature_data = df[["id", "message"]]
     return feature_data

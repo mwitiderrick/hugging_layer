@@ -47,13 +47,13 @@ def train_model(train: Train, pf: Featureset("hugging_features")) -> Any:
     optimizer = tf.keras.optimizers.Adam(learning_rate=3e-5)
     loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
     model.compile(optimizer=optimizer, loss=loss, metrics=['acc'])
-    model.fit(train_dataset.shuffle(1000).batch(16), validation_data=test_dataset.shuffle(1000).batch(16), epochs=1,
+    model.fit(train_dataset.shuffle(32).batch(16), validation_data=test_dataset.shuffle(32).batch(16), epochs=1,
               batch_size=16)
-    loss, accuracy = model.evaluate(train_dataset.shuffle(1000).batch(16))
+    loss, accuracy = model.evaluate(train_dataset.shuffle(32).batch(16))
     train.log_metric("Training Accuracy", accuracy)
     train.log_metric("Training Loss", loss)
 
-    test_loss, test_accuracy = model.evaluate(test_dataset.shuffle(1000).batch(16))
+    test_loss, test_accuracy = model.evaluate(test_dataset.shuffle(32).batch(16))
     train.log_metric("Testing Accuracy", test_accuracy)
     train.log_metric("Testing Loss", test_loss)
 
